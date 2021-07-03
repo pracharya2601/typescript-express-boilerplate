@@ -1,49 +1,57 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { controller, get, bodyValidator, use, post } from './decorator';
 
-function logger(req: Request, res: Response, next: NextFunction) {
-  if (req.session && req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  next()
-}
+import { url, blockpath } from '../middleware';
+import { sendResponse } from './responseHandeler/response';
+
+
 
 @controller('/auth')
 class LoginController {
   @get('/login')
-  @use(logger)
+  @use(url)
+  @use(blockpath)
   getLogin(req: Request, res: Response): void {
-    res.send(`
-      <form method="POST">
-        <div>
-          <label>Email</label>
-          <input name="email" type="text"/>
-        </div>
-        <div>
-          <label>Password</label>
-          <input name="password" type="password" />
-        </div>
-
-        <button type="submit">Submit</button>
-      </form>
-    `)
+    console.log(req.query.error)
+    return sendResponse(
+      req,
+      res,
+      "auth/index",
+      "Login | Express Typescript Boilerplate",
+      {
+        error: req.query.error
+      }
+    )
   }
   @post('/login')
+  @use(url)
   @bodyValidator('email', 'password')
   postLogin(req: Request, res: Response): void {
     const { email, password } = req.body;
     if (email && password && email === 'email@email.com' && password === 'password') {
-      req.session = { loggedIn: true };
+      req.session = { ...req.session, loggedIn: true, user: "user" };
       res.redirect('/')
     } else {
-      res.send('Invalid email and password')
+      return sendResponse(
+        req,
+        res,
+        "auth/index",
+        "Login | Express Typescript Boilerplate",
+        {
+          error: "Invalid email or password"
+        }
+      )
     }
   }
 
   @get('/logout')
+  @use(url)
   getLogout(req: Request, res: Response): void {
-    req.session = undefined;
+    req.session = {
+      ...req.session,
+      loggedIn: false,
+      user: undefined,
+    }
     res.redirect('/');
   }
 }

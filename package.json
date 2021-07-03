@@ -4,18 +4,27 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:build": "tsc -w",
-    "start:run": "nodemon build/index.js",
-    "start": "concurrently npm:start:*"
+    "clean": "rimraf build/",
+    "copy-files": "copyfiles -u 1 src/**/*.ejs src/**/*.css build/",
+    "start": "yarn clean && tsc && yarn copy-files && nodemon build/index.js"
   },
   "dependencies": {
     "@types/body-parser": "^1.19.0",
     "@types/cookie-session": "^2.0.42",
     "@types/express": "^4.17.12",
+    "@types/express-ejs-layouts": "^2.3.2",
+    "@types/method-override": "^0.0.31",
     "body-parser": "^1.19.0",
     "concurrently": "^6.2.0",
     "cookie-session": "^1.4.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "method-override": "^3.0.0",
     "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2"
   }
 }

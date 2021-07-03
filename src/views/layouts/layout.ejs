@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+    <%= data.title %>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="/script/script.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/stylesheet/main.css" />
+</head>
+
+<body class="<%= data.theme %>">
+  <div class="container_main">
+    <%- include('../header/header') %>
+      <%- body %>
+  </div>
+</body>
+
+</html>

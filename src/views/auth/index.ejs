@@ -1,0 +1,25 @@
+<div>
+  <h2>Login</h2>
+  <div>
+    <p class="danger">
+      <%= data.content.error %>
+    </p>
+  </div>
+  <div>
+    <form action="/auth/login" method="POST">
+      <%- include('_form')%>
+        <div class="form-row btn-end btn-row">
+          <button class="btn bg-primary" type="submit">Login</button>
+        </div>
+    </form>
+  </div>
+  <h2>Signup</h2>
+  <div>
+    <form action="/auth/signup" method="POST">
+      <%- include('_form')%>
+        <div class="form-row btn-end btn-row">
+          <button class="btn bg-primary" type="submit">Signup</button>
+        </div>
+    </form>
+  </div>
+</div>

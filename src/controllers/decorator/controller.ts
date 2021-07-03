@@ -3,24 +3,9 @@ import 'reflect-metadata';
 import { AppRouter } from '../../AppRouter';
 import { Methods } from './Methods';
 import { MetadataKeys } from './MetadataKeys';
-import { NextFunction, RequestHandler, Request, Response } from 'express';
+// import { NextFunction, RequestHandler, Request, Response } from 'express';
 
-
-function bodyValidates(keys: string): RequestHandler {
-  return function (req: Request, res: Response, next: NextFunction): void {
-    if (!req.body) {
-      res.send(422).send("Invalid Request");
-      return;
-    }
-    for (let key of keys) {
-      if (!req.body[key]) {
-        res.status(422).send(`${key} is required`);
-        return
-      }
-    }
-    next();
-  }
-}
+import { bodyValidates } from '../../middleware/bodyValidates'
 
 export function controller(routePrefix: string) {
   return function (target: Function) {

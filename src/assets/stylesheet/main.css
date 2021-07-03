@@ -1,0 +1,122 @@
+@import 'section/container.css';
+@import 'section/header.css';
+@import 'section/button.css';
+
+:root {
+  --light-100: #f5f5ff;
+  --light-300: #ebebf9;
+  --light-500: #e1e1f2;
+  --light-700: #d6d6ec;
+  --light-900: #cccce5;
+
+  --dark-100: #424c87;
+  --dark-300: #32396c;
+  --dark-500: #212751;
+  --dark-700: #111435;
+  --dark-900: #00021a;
+
+  --red-100: #ff7f7f;
+  --red-300: #ff4d4d;
+  --red-500: #fe1d1b;
+
+  --green-100: #47d1a3;
+  --green-300: #2eb88a;
+  --green-500: #208f6b;
+
+  --gold-100: #ffd17f;
+  --gold-300: #ffbf4d;
+  --gold-500: #ffad1d;
+
+  --blue-100: #7dd5ff;
+  --blue-300: #4dc4ff;
+  --blue-500: #23b3fe;
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#sun {
+  cursor: pointer;
+  color: var(--gold-500) !important ;
+}
+#cloud {
+  cursor: pointer;
+  color: var(--dark-500) !important;
+}
+#logout {
+  cursor: pointer;
+  color: var(--red-500) !important;
+}
+
+.nav_logo {
+  font-size: 1.2rem;
+  padding-left: 10px;
+}
+
+.dark {
+  --c-100: var(--light-100);
+  --c-300: var(--light-300);
+  --c-500: var(--light-500);
+  --c-700: var(--light-700);
+  --c-900: var(--light-900);
+  --bg-100: var(--dark-100);
+  --bg-300: var(--dark-300);
+  --bg-500: var(--dark-500);
+  --bg-700: var(--dark-700);
+  --bg-900: var(--dark-900);
+
+  background-color: var(--dark-900);
+  color: var(--light-900);
+}
+.light {
+  --c-100: var(--dark-100);
+  --c-300: var(--dark-300);
+  --c-500: var(--dark-500);
+  --c-700: var(--dark-700);
+  --c-900: var(--dark-900);
+  --bg-100: var(--light-100);
+  --bg-300: var(--light-300);
+  --bg-500: var(--light-500);
+  --bg-700: var(--light-700);
+  --bg-900: var(--light-900);
+  background-color: var(--light-900);
+  color: var(--dark-900);
+}
+
+.danger {
+  color: var(--red-500);
+}
+
+.bg-danger {
+  background-color: var(--red-500);
+}
+
+.primary {
+  color: var(--blue-500);
+}
+.bg-primary {
+  background-color: var(--blue-500);
+}
+.success {
+  color: var(--blue-500);
+}
+.bg-success {
+  background-color: var(--blue-500);
+}
+
+.warning {
+  color: var(--blue-500);
+}
+.bg-warning {
+  background-color: var(--blue-500);
+}
+
+

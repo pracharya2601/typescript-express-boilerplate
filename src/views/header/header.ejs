@@ -1,0 +1,31 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="nav_logo">Home</a>
+    <ul class="nav-wrapper" id="nav-space">
+      <li><a href="/About">About</a></li>
+      <li><a href="/slkdjfskldjflks">NavItem 2</a></li>
+      <li>
+        <% if(data.theme=="light" ) { %>
+          <a href="/theme/dark">
+            <i class="material-icons small" id="cloud">wb_cloudy</i>
+          </a>
+          <% } else { %>
+            <a href="/theme/light">
+              <i class="material-icons small" id="sun">wb_sunny</i>
+            </a>
+            <% } %>
+      </li>
+    </ul>
+    <div>
+      <% if(data.loggedin) { %>
+        <a href="/auth/logout">
+          <i class="material-icons small" id="logout">exit_to_app</i>
+        </a>
+        <% } else { %>
+          <a href="/auth/login">
+            Login
+          </a>
+          <% } %>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,32 @@
+nav {
+  height: 60px;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-700);
+  border-bottom: var(--bg-500);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--c-900);
+}
+nav a:hover {
+  color: var(--c-700);
+}
+
+.nav-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+#nav-space {
+  justify-content: left;
+}
+
+.nav-wrapper > ul li {
+  list-style: none;
+  margin: 0 10px;
+}
